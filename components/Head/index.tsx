@@ -1,10 +1,55 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
+import { Bounce, gsap } from 'gsap';
+
 import Button from '../ui/Button';
+import Image from 'next/image';
+import Me from '../../public/img/me.jpg';
+import Skotch from '../ui/Skotch';
 
 function Head() {
+  const [skotch, setSkotck] = useState(false);
+
+  const Anim = () => {
+    setSkotck(true);
+    gsap.to('#image', {
+      transform: 'rotate(50deg) translate(-110px, 220px)',
+      ease: Bounce.easeOut,
+    });
+  };
+  const Falling = () => {
+    if (skotch) {
+      gsap.fromTo(
+        '#image',
+        {
+          transform: 'rotate(50deg) translate(-110px, 220px)',
+          ease: Bounce.easeOut,
+        },
+        {
+          transform: 'rotate(50deg) translate(120px, 370px)',
+          ease: Bounce.easeOut,
+        }
+      );
+    }
+  };
   return (
     <div className="w-full h-[calc(100vh_-_163px)] mt-10 flex items-center justify-between gap-5">
-      <div className="bg-black min-w-[407px] min-h-[485px]"></div>
+      <div className="bg-black min-w-[407px] min-h-[485px] filter-shadow rounded-basic relative">
+        <div
+          className="absolute top-[-7px] left-[-14px] z-[100]"
+          onClick={() => Falling()}
+        >
+          <Skotch />
+        </div>
+        <div
+          className="absolute top-[-7px] right-[-14px] rotate-[65deg]"
+          onClick={() => Anim()}
+        >
+          <Skotch />
+        </div>
+        <div id="image">
+          <Image src={Me} alt="me" />
+        </div>
+      </div>
       <div className="w-full">
         <h1 className="text-54 font-bold">
           Hi! Je suis Teddy 🧸, <br /> développeur front-end 👨🏻‍💻
