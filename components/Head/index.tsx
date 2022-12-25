@@ -13,6 +13,7 @@ import Smile from '../ui/icons/Smile';
 
 function Head() {
   const [skotch, setSkotck] = useState(false);
+  const [ended, setEnded] = useState(false);
 
   const Anim = () => {
     setSkotck(true);
@@ -30,17 +31,17 @@ function Head() {
           ease: Bounce.easeOut,
         },
         {
-          transform: 'rotate(50deg) translate(120px, 370px)',
+          transform: 'rotate(50deg) translate(120px, 150%)',
           ease: Bounce.easeOut,
+          onComplete: () => {
+            setEnded(true);
+          },
         }
       );
     }
   };
   return (
     <div className="w-full h-[calc(100vh_-_163px)] mt-10 flex items-center justify-between gap-5 relative">
-       <div className="absolute left-[-140px] top-[300px] z-[200]">
-          <Smile />
-        </div>
       <div className="absolute right-[40px] top-[50px] z-[200]">
         <Sun />
       </div>
@@ -49,22 +50,37 @@ function Head() {
       </div>
       <div className="min-w-[407px] min-h-[485px] filter-shadow rounded-basic relative">
         <div
-          className="absolute top-[-7px] left-[-14px] z-[300]"
+          className={`absolute top-[-7px] left-[-14px] z-[300] transition duration-300 ${
+            ended ? 'opacity-0' : 'opacity-100'
+          }`}
           onClick={() => Falling()}
         >
           <Skotch />
         </div>
         <div
-          className="absolute top-[-7px] right-[-14px] rotate-[65deg] z-[300]"
+          className={`absolute top-[-7px] right-[-14px] rotate-[65deg] z-[300] ${
+            skotch ? 'opacity-0' : 'opacity-100'
+          }`}
           onClick={() => Anim()}
         >
           <Skotch />
         </div>
-        <div id="image relative">
-          <div className="absolute top-[-120px] right-[-50px]">
+        <div className="relative">
+          <div
+            className={`absolute top-[-120px] right-[-50px] transition duration-300 ${
+              skotch ? 'opacity-0' : 'opacity-100'
+            }`}
+          >
             <Arrow />
           </div>
-          <Image src={Me} alt="me" className="rounded-basic" />
+          <Image id="image" src={Me} alt="me" className="rounded-basic" />
+          <div
+            className={`absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] z-[-1] transition duration-300 ${
+              ended ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <Smile />
+          </div>
         </div>
       </div>
       <div className="w-full relative">
