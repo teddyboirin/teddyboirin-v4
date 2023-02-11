@@ -1,7 +1,7 @@
-import Container from '../components/Container';
-import HeadUtils from '../components/Utils/Head';
-import Header from '../components/Header';
-import HeadPart from '../components/Head';
+import Container from '@components/Container';
+import HeadUtils from '@components/Utils/Head';
+import Header from '@components/Header';
+import HeadPart from '@components/Head';
 
 export default function Home() {
   return (

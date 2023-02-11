@@ -1,16 +1,15 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import { Data } from '@public/data/projects';
 import { Pagination } from 'swiper';
 
-import Container from '../components/Container';
-import HeadUtils from '../components/Utils/Head';
-import Header from '../components/Header';
+import Container from '@components/Container';
+import HeadUtils from '@components/Utils/Head';
+import Card from '@components/ui/Card';
+import Header from '@components/Header';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import Image from 'next/image';
-import { Data } from '../public/data/projects';
 
 export default function Home() {
   return (
@@ -34,24 +33,8 @@ export default function Home() {
               >
                 {Data.map((project) => (
                   <>
-                    <SwiperSlide className="relative h-full !w-fit">
-                      <button
-                        type="button"
-                        className="flex shadow-card relative h-full"
-                      >
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          width={303}
-                          height={455}
-                          style={{
-                            objectFit: 'cover',
-                          }}
-                        />
-                        <div className="absolute text-center bottom-[8px] text-[32px] w-full whitespace-nowrap font-semibold z-[200] uppercase">
-                          {project.title}
-                        </div>
-                      </button>
+                    <SwiperSlide key={project.title} className="relative h-full !w-fit">
+                      <Card project={project} />
                     </SwiperSlide>
                   </>
                 ))}

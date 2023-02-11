@@ -3,10 +3,10 @@ import { memo } from 'react';
 import Head from 'next/head';
 
 type Props = {
-    children: string;
-}
+  children: string;
+};
 
-function HeadUtils({children}: Props) {
+function HeadUtils({ children }: Props) {
   return (
     <Head>
       <title>teddy boirin | {children}</title>
@@ -14,4 +14,4 @@ function HeadUtils({children}: Props) {
   );
 }
 
-export default (HeadUtils);
+export default memo(HeadUtils);

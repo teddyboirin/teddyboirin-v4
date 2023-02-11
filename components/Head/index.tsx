@@ -1,6 +1,6 @@
 import { memo, useLayoutEffect, useState } from 'react';
 import { Bounce, gsap, Power3 } from 'gsap';
-
+import { useTheme } from 'next-themes'
 import Button from '../ui/Button';
 import Image from 'next/image';
 import Me from '../../public/img/me.jpg';
@@ -10,11 +10,12 @@ import Sun from '../ui/icons/Sun';
 import Burger from '../ui/icons/Burger';
 import Cloud from '../ui/icons/Cloud';
 import Smile from '../ui/icons/Smile';
+import Link from 'next/link';
 
 function Head() {
   const [skotch, setSkotck] = useState(false);
   const [ended, setEnded] = useState(false);
-
+  const { theme, setTheme } = useTheme()
   const Anim = () => {
     setSkotck(true);
     gsap.to('#image', {
@@ -60,7 +61,7 @@ function Head() {
         <Burger />
       </div>
       <div className="md:min-w-[407px] md:min-h-[485px] filter-shadow rounded-basic relative">
-      <div className="absolute top-[34px] md:right-[180px] md:bottom-0 z-[200]">
+        <div className="absolute top-[34px] md:right-[180px] md:bottom-0 z-[200]">
           <Cloud />
         </div>
         <div
@@ -98,7 +99,7 @@ function Head() {
         </div>
       </div>
       <div className="w-full relative">
-        <h1 id="title" className="text-30 md:text-54 font-bold">
+        <h1 id="title" className={`text-30 md:text-54 font-bold ${theme === 'dark' ? 'white' : 'black'}`}>
           Hi! Je suis Teddy 🧸, <br /> développeur front-end 👨🏻‍💻
         </h1>
         <p className="text-14 md:text-16 mt-2">
@@ -108,8 +109,12 @@ function Head() {
           inceptos himenaeos.
         </p>
         <div className="flex gap-3">
-          <Button basic>Contactez-moi</Button>
-          <Button secondary>Mes projets</Button>
+          <Link href="#">
+            <Button basic>Contactez-moi</Button>
+          </Link>
+          <Link href="/projects">
+            <Button secondary>Mes projets</Button>
+          </Link>
         </div>
         <div className="absolute top-0 md:right-[180px] md:bottom-0 z-[200] hidden md:block">
           <Cloud />

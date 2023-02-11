@@ -1,3 +1,49 @@
 {
-  "extends": "next/core-web-vitals"
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": ["airbnb", "next/core-web-vitals", "plugin:@typescript-eslint/eslint-recommended", "plugin:@typescript-eslint/recommended", "plugin:storybook/recommended"],
+  "rules": {
+    "react/jsx-filename-extension": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/label-has-associated-control": ["error", {
+      "required": {
+        "some": ["nesting", "id"]
+      }
+    }],
+    "jsx-a11y/label-has-for": ["error", {
+      "required": {
+        "some": ["nesting", "id"]
+      }
+    }],
+    "react/prop-types": ["error"],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "react/require-default-props": "off",
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
+    "no-shadow": "off",
+    "import/extensions": ["error", "ignorePackages", {
+      "js": "never",
+      "jsx": "never",
+      "ts": "never",
+      "tsx": "never"
+    }],
+    "sort-imports": ["error", {
+      "ignoreCase": false,
+      "ignoreDeclarationSort": false,
+      "ignoreMemberSort": false,
+      "memberSyntaxSortOrder": ["all", "multiple", "single", "none"],
+      "allowSeparatedGroups": true
+    }]
+  },
+  "overrides": [{
+    "files": ["*.tsx", "*.ts"],
+    "rules": {
+      "no-undef": "off",
+      "no-unused-vars": "off"
+    }
+  }]
 }
