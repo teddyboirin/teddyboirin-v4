@@ -7,7 +7,7 @@ type Props = {
 
 function Container({children, className} : Props) {
   return (
-    <section className={`mx-auto px-6 max-w-container ${className || ''}`}>{children}</section>
+    <section className={`mx-auto p-4 md:p-6 max-w-container ${className || ''}`}>{children}</section>
   )
 }
 

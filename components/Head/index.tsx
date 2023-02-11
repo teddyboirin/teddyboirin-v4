@@ -1,5 +1,5 @@
-import { memo, useState } from 'react';
-import { Bounce, gsap } from 'gsap';
+import { memo, useLayoutEffect, useState } from 'react';
+import { Bounce, gsap, Power3 } from 'gsap';
 
 import Button from '../ui/Button';
 import Image from 'next/image';
@@ -32,6 +32,7 @@ function Head() {
         },
         {
           transform: 'rotate(50deg) translate(120px, 150%)',
+          opacity: 0,
           ease: Bounce.easeOut,
           onComplete: () => {
             setEnded(true);
@@ -40,18 +41,31 @@ function Head() {
       );
     }
   };
+
+  // useLayoutEffect(() => {
+  //   gsap.from(['#image', '#title'], {
+  //     y: -40,
+  //     opacity: 0,
+  //     duration: 1,
+  //     stagger: .3,
+  //     ease: Power3.easeOut,
+  //   })
+  // }, [])
   return (
-    <div className="w-full h-[calc(100vh_-_163px)] mt-10 flex items-center justify-between gap-5 relative">
-      <div className="absolute right-[40px] top-[50px] z-[200]">
+    <div className="w-full mt-5 flex items-center justify-between gap-5 relative flex-col md:flex-row md:h-[calc(100vh_-_60px_-_32px_-_96px)]">
+      <div className="absolute right-0 top-[30px] md:right-[40px] md:top-[50px] z-[200]">
         <Sun />
       </div>
-      <div className="absolute left-[580px] top-[120px] z-[200]">
+      <div className="absolute left-[580px] top-[120px] z-[200] hidden md:block">
         <Burger />
       </div>
-      <div className="min-w-[407px] min-h-[485px] filter-shadow rounded-basic relative">
+      <div className="md:min-w-[407px] md:min-h-[485px] filter-shadow rounded-basic relative">
+      <div className="absolute top-[34px] md:right-[180px] md:bottom-0 z-[200]">
+          <Cloud />
+        </div>
         <div
           className={`absolute top-[-7px] left-[-14px] z-[300] transition duration-300 ${
-            ended ? 'opacity-0' : 'opacity-100'
+            ended ? 'opacity-0' : 'opacity-100 cursor-pointer'
           }`}
           onClick={() => Falling()}
         >
@@ -59,7 +73,7 @@ function Head() {
         </div>
         <div
           className={`absolute top-[-7px] right-[-14px] rotate-[65deg] z-[300] ${
-            skotch ? 'opacity-0' : 'opacity-100'
+            skotch ? 'opacity-0' : 'opacity-100 cursor-pointer'
           }`}
           onClick={() => Anim()}
         >
@@ -67,7 +81,7 @@ function Head() {
         </div>
         <div className="relative">
           <div
-            className={`absolute top-[-120px] right-[-50px] transition duration-300 ${
+            className={`absolute top-[-120px] right-[-50px] transition duration-300 hidden md:block ${
               skotch ? 'opacity-0' : 'opacity-100'
             }`}
           >
@@ -84,10 +98,10 @@ function Head() {
         </div>
       </div>
       <div className="w-full relative">
-        <h1 className="text-54 font-bold">
+        <h1 id="title" className="text-30 md:text-54 font-bold">
           Hi! Je suis Teddy 🧸, <br /> développeur front-end 👨🏻‍💻
         </h1>
-        <p className="text-16 mt-2">
+        <p className="text-14 md:text-16 mt-2">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
           vulputate libero et velit interdum, ac aliquet odio mattis. Class
           aptent taciti sociosqu ad litora torquent per conubia nostra, per
@@ -97,7 +111,7 @@ function Head() {
           <Button basic>Contactez-moi</Button>
           <Button secondary>Mes projets</Button>
         </div>
-        <div className="absolute right-[180px] bottom-0 z-[200]">
+        <div className="absolute top-0 md:right-[180px] md:bottom-0 z-[200] hidden md:block">
           <Cloud />
         </div>
       </div>

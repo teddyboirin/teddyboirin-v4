@@ -7,7 +7,7 @@ import DarkMode from '../ui/icons/DarkMode';
 
 function Header() {
   return (
-    <div className="flex justify-between mt-10 md:mt-6">
+    <div className="flex justify-between min-h-[60px] items-center">
       <Link href="/" passHref>
         <Logo />
       </Link>
