@@ -62,7 +62,9 @@ module.exports = {
         basic: '8px',
       },
       screens: {},
-      boxShadow: {},
+      boxShadow: {
+        card: '0 0 50px #00000022'
+      },
       brightness: {},
       transitionDuration: {},
       transitionDelay: {},
@@ -121,6 +123,7 @@ module.exports = {
       40: ['40px', { lineHeight: '48px', letterSpacing: '0' }],
       24: ['24px', { lineHeight: '32px', letterSpacing: '-0.02em' }],
       22: ['22px', { lineHeight: '28px', letterSpacing: '-0.02em' }],
+      30: ['30px', { lineHeight: '30px', letterSpacing: '-0.02em' }],
       54: ['54px', { lineHeight: '134%', letterSpacing: '-0.02em' }],
       64: ['64px', { lineHeight: '70px', letterSpacing: '-0.03em' }],
     },
