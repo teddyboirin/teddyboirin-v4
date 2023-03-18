@@ -6,7 +6,7 @@ type Props = {
   children: string;
 };
 
-function HeadUtils({ children }: Props) {
+function CustomHead({ children }: Props) {
   return (
     <Head>
       <title>teddy boirin | {children}</title>
@@ -14,4 +14,4 @@ function HeadUtils({ children }: Props) {
   );
 }
 
-export default memo(HeadUtils);
+export default memo(CustomHead);

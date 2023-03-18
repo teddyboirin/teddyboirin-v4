@@ -64,7 +64,8 @@ module.exports = {
       },
       screens: {},
       boxShadow: {
-        card: '0 0 50px #00000022'
+        card: '0 0 50px #00000022',
+        projectOpen: '0 0 50px #00000045'
       },
       brightness: {},
       transitionDuration: {},
@@ -86,19 +87,6 @@ module.exports = {
         '16px',
         { lineHeight: '22px', letterSpacing: '-0.02em' },
       ],
-
-      'xxs-mobile': ['12px', { lineHeight: '16px', letterSpacing: '0' }],
-      'xxs-desktop': ['14px', { lineHeight: '18px', letterSpacing: '0' }],
-      'xs-mobile': ['16px', { lineHeight: '22px', letterSpacing: '0' }],
-      'xs-desktop': ['16px', { lineHeight: '22px', letterSpacing: '0' }],
-      'base-mobile': ['20px', { lineHeight: 'auto', letterSpacing: '0' }],
-      'xl-mobile': ['26px', { lineHeight: '32px', letterSpacing: '-0.02em' }],
-      'xl-mobile': ['32px', { lineHeight: 'auto', letterSpacing: '-0.02em' }],
-
-      xxs: ['10px', { lineHeight: '14px', letterSpacing: '0' }],
-      xs: ['12px', { lineHeight: '16px', letterSpacing: '0' }],
-      base: ['16px', { lineHeight: '20px', letterSpacing: '0' }],
-      lg: ['18px', { lineHeight: '24px', letterSpacing: '0' }],
 
       select: ['13px', { lineHeight: '16px', letterSpacing: '0' }],
 
@@ -135,7 +123,8 @@ module.exports = {
 
     colors: {
       black: '#0a0a0a',
-      white: '#FFFFFF'
+      white: '#FFFFFF',
+      overlay: '#0000009d',
     },
   },
 };

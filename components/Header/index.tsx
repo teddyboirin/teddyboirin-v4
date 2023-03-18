@@ -4,17 +4,17 @@ import Link from 'next/link';
 import Logo from '../Logo';
 import Github from '../ui/icons/Github';
 import DarkMode from '../ui/icons/ThemeButton';
-import { useTheme } from 'next-themes'
+import { useTheme } from 'next-themes';
 import { switchTheme } from 'helpers/theme';
+import Container from '@components/Container';
 function Header() {
-  const { theme, setTheme, systemTheme } = useTheme()
+  const { theme, setTheme, systemTheme } = useTheme();
 
   const themeColor = theme === 'dark' ? 'white' : 'black';
 
   const handleClick = () => {
-    switchTheme(theme, setTheme)
-  }
-
+    switchTheme(theme, setTheme);
+  };
 
   return (
     <div className="flex justify-between min-h-[60px] items-center">

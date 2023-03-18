@@ -3,6 +3,8 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import '../styles/globals.scss';
 import { useEffect, useState } from 'react';
+import Header from '@components/Header';
+import Container from '@components/Container';
 
 export default function App({ Component, pageProps }: AppProps) {
   const [mounted, setMounted] = useState(false);
@@ -23,7 +25,12 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThemeProvider attribute="class" defaultTheme="system">
-        <Component {...pageProps} />
+        <Container>
+          <>
+            <Header />
+            <Component {...pageProps} />
+          </>
+        </Container>
       </ThemeProvider>
     </>
   );
