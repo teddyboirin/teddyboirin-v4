@@ -11,12 +11,14 @@ type Props = {
 
 function Card({ project, onClick }: Props) {
   return (
-    <button type="button" className="flex shadow-card relative h-full" onClick={onClick}>
+    <button
+      type="button"
+      className="flex shadow-card relative h-full"
+      onClick={onClick}
+    >
       <Image
         src={project.image}
         alt={project.title}
-        width={303}
-        height={455}
         style={{
           objectFit: 'cover',
         }}

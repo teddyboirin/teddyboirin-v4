@@ -9,7 +9,10 @@ type Props = {
 function CustomHead({ children }: Props) {
   return (
     <Head>
-      <title>teddy boirin | {children}</title>
+      <title>
+        teddy boirin |
+        {children}
+      </title>
     </Head>
   );
 }

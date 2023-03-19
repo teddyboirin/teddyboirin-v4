@@ -32,3 +32,14 @@ body {
 .swiper-pagination-bullet-active {
     background: black !important;
 }
+
+
+// swiper project
+
+.swiper-slide {
+  width: auto;
+  > div {
+    flex: 1;
+    height: 100%;
+  }
+}

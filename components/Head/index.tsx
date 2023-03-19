@@ -1,21 +1,23 @@
-import { memo, useLayoutEffect, useState } from 'react';
-import { Bounce, gsap, Power3 } from 'gsap';
-import { useTheme } from 'next-themes'
-import Button from '../ui/Button';
+import { Bounce, gsap } from 'gsap';
+import { memo, useState } from 'react';
+import { useTheme } from 'next-themes';
+
 import Image from 'next/image';
+import Link from 'next/link';
+
+import Arrow from '../ui/icons/Arrow';
+import Burger from '../ui/icons/Burger';
+import Button from '../ui/Button';
+import Cloud from '../ui/icons/Cloud';
 import Me from '../../public/img/me.jpg';
 import Skotch from '../ui/Skotch';
-import Arrow from '../ui/icons/Arrow';
-import Sun from '../ui/icons/Sun';
-import Burger from '../ui/icons/Burger';
-import Cloud from '../ui/icons/Cloud';
 import Smile from '../ui/icons/Smile';
-import Link from 'next/link';
+import Sun from '../ui/icons/Sun';
 
 function Head() {
   const [skotch, setSkotck] = useState(false);
   const [ended, setEnded] = useState(false);
-  const { theme, setTheme } = useTheme()
+  const { theme } = useTheme();
   const Anim = () => {
     setSkotck(true);
     gsap.to('#image', {
@@ -38,7 +40,7 @@ function Head() {
           onComplete: () => {
             setEnded(true);
           },
-        }
+        },
       );
     }
   };
@@ -68,6 +70,9 @@ function Head() {
           className={`absolute top-[-7px] left-[-14px] z-[300] transition duration-300 ${
             ended ? 'opacity-0' : 'opacity-100 cursor-pointer'
           }`}
+          onKeyPress={() => Falling()}
+          role="button"
+          tabIndex={0}
           onClick={() => Falling()}
         >
           <Skotch />
@@ -76,6 +81,9 @@ function Head() {
           className={`absolute top-[-7px] right-[-14px] rotate-[65deg] z-[300] ${
             skotch ? 'opacity-0' : 'opacity-100 cursor-pointer'
           }`}
+          onKeyPress={() => Anim()}
+          role="button"
+          tabIndex={0}
           onClick={() => Anim()}
         >
           <Skotch />
@@ -99,8 +107,17 @@ function Head() {
         </div>
       </div>
       <div className="w-full relative">
-        <h1 id="title" className={`text-30 md:text-54 font-bold ${theme === 'dark' ? 'white' : 'black'}`}>
-          Hi! Je suis Teddy 🧸, <br /> développeur front-end 👨🏻‍💻
+        <h1
+          id="title"
+          className={`text-30 md:text-54 font-bold ${
+            theme === 'dark' ? 'white' : 'black'
+          }`}
+        >
+          Hi! Je suis Teddy 🧸,
+          {' '}
+          <br />
+          {' '}
+          développeur front-end 👨🏻‍💻
         </h1>
         <p className="text-14 md:text-16 mt-2">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc

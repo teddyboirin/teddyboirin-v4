@@ -7,12 +7,11 @@ type Props = {
 };
 
 function Button({ basic, secondary, children }: Props) {
-
   return (
     <button
       className={`${
         basic
-          ? 'bg-black text-white hover:bg-white hover:text-black border-black border-[0.5px] hover:border-black'
+          ? 'bg-black text-white hover:bg-white hover:text-black border-white border-[0.5px] hover:border-black'
           : null
       } ${
         secondary

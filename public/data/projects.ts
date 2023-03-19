@@ -1,6 +1,7 @@
 import AguaBlanca from '../img/agua.jpg';
 import BeInSHape from '../img/beinshape.jpg';
 import AJDB from '../img/ajdb.jpg';
+import Madmen from '../img/madmen.jpg';
 
 export const Data = [
     {
@@ -9,7 +10,7 @@ export const Data = [
         link: 'https://aguablanca.co/',
         image: AguaBlanca,
         color: 'black',
-        desc: ''
+        desc: '',
     },
     {
         id: 2,
@@ -17,7 +18,7 @@ export const Data = [
         link: 'https://be-in-shape.fr/',
         image: BeInSHape,
         color: 'white',
-        desc: ''
+        desc: '',
     },
     {
         id: 3,
@@ -25,6 +26,14 @@ export const Data = [
         link: 'https://ajdb.fr/',
         image: AJDB,
         color: 'black',
-        desc: ''
+        desc: '',
+    },
+    {
+        id: 3,
+        title: 'Madmen Paris',
+        link: 'https://madmenparis.fr/',
+        image: Madmen,
+        color: 'white',
+        desc: '',
     },
 ]
