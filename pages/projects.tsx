@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
+import { Mousewheel, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Data } from '@public/data/projects';
-import { Pagination } from 'swiper';
 import { useState } from 'react';
 
 import Card from '@components/ui/Card';
@@ -10,6 +10,7 @@ import ProjectItem from '@components/ProjectItem';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/mousewheel';
 
 export default function Home() {
   const [projectOpen, setProjectOpen] = useState<number | null>();
@@ -19,55 +20,70 @@ export default function Home() {
       <>
         <AnimatePresence>
           {projectOpen && (
-            <>
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  zIndex: 150,
-                  position: 'fixed',
-                  top: 0,
-                  left: 0,
-                }}
-                animate={{
-                  opacity: 1,
-                  zIndex: 150,
-                  top: 0,
-                  left: 0,
-                }}
-                transition={{ duration: 0.3 }}
-                exit={{
-                  opacity: 0, zIndex: 150, top: 0, left: 0,
-                }}
-                className="bg-overlay w-screen h-screen absolute left-0 top-0"
+            <motion.div
+              id="teddy"
+              onKeyPress={() => setProjectOpen(null)}
+              onClick={() => setProjectOpen(null)}
+              role="button"
+              tabIndex={0}
+              initial={{
+                opacity: 0,
+                zIndex: 150,
+                position: 'fixed',
+                top: 0,
+                left: 0,
+              }}
+              animate={{
+                opacity: 1,
+                zIndex: 150,
+                top: 0,
+                left: 0,
+              }}
+              transition={{ duration: 0.3 }}
+              exit={{
+                opacity: 0,
+                zIndex: 150,
+                top: 0,
+                left: 0,
+              }}
+              className="bg-overlay w-screen h-screen absolute left-0 top-0"
+            />
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {projectOpen && (
+            <motion.div
+              className=" w-auto h-auto"
+              layout
+              initial={{
+                opacity: 0,
+                zIndex: 150,
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                scaleY: 0.8,
+              }}
+              animate={{
+                opacity: 1,
+                zIndex: 150,
+                top: 0,
+                left: 0,
+                scaleY: 1,
+              }}
+              transition={{ duration: 0.3 }}
+              exit={{
+                opacity: 0,
+                zIndex: 150,
+                top: 0,
+                left: 0,
+                scaleY: 0.8,
+              }}
+            >
+              <ProjectItem
+                project={Data[projectOpen]}
+                handleClose={() => setProjectOpen(null)}
               />
-              <motion.div
-                layout
-                initial={{
-                  opacity: 0,
-                  zIndex: 150,
-                  position: 'fixed',
-                  top: 0,
-                  left: 0,
-                  scaleY: 0.8,
-                }}
-                animate={{
-                  opacity: 1,
-                  zIndex: 150,
-                  top: 0,
-                  left: 0,
-                  scaleY: 1,
-                }}
-                transition={{ duration: 0.3 }}
-                exit={{
-                  opacity: 0, zIndex: 150, top: 0, left: 0, scaleY: 0.8,
-                }}
-              >
-                <ProjectItem
-                  project={Data[projectOpen]}
-                  handleClose={() => setProjectOpen(null)}
-                />
-              </motion.div>
-            </>
+            </motion.div>
           )}
         </AnimatePresence>
         <h1 className="text-4xl font-bold text-center mt-6">Mes projets 🖼️</h1>
@@ -80,7 +96,10 @@ export default function Home() {
             pagination={{
               dynamicBullets: true,
             }}
-            modules={[Pagination]}
+            modules={[Pagination, Mousewheel]}
+            mousewheel={{
+              releaseOnEdges: true,
+            }}
           >
             {Data.map((project) => (
               <SwiperSlide key={project.id} className="relative">
