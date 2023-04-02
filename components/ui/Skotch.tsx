@@ -18,6 +18,7 @@ function Skotch({ color }: Props) {
         height="7.30418"
         transform="rotate(-30 0 31.5)"
         fill={color}
+        className="transition duration-300"
       />
     </svg>
   );

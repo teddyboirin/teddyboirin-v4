@@ -16,7 +16,7 @@ export default function Home() {
   const [projectOpen, setProjectOpen] = useState<number | null>();
   return (
     <>
-      <HeadUtils>développeur front-end | projets </HeadUtils>
+      <HeadUtils>développeur front-end | projets</HeadUtils>
       <>
         <AnimatePresence>
           {projectOpen && (
@@ -87,7 +87,7 @@ export default function Home() {
           )}
         </AnimatePresence>
         <h1 className="text-4xl font-bold text-center mt-6">Mes projets 🖼️</h1>
-        <div className="w-full mt-10 flex items-center justify-between gap-5 relative flex-col md:flex-row swiper-block">
+        <div className="w-full mt-5 lg:mt-10 flex items-center justify-between gap-5 relative flex-col md:flex-row swiper-block">
           <Swiper
             className="!md:grid w-full !pb-8"
             slidesPerView={2}

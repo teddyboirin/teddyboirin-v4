@@ -18,7 +18,7 @@ function Header() {
   };
 
   return (
-    <div className="flex justify-between min-h-[60px] items-center">
+    <header className="flex justify-between min-h-[60px] items-center">
       <Link href="/" passHref>
         <Logo color={themeColor} />
       </Link>
@@ -34,7 +34,7 @@ function Header() {
           <Github color={themeColor} />
         </a>
       </div>
-    </div>
+    </header>
   );
 }
 

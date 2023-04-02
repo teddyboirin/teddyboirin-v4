@@ -5,6 +5,7 @@ import { ThemeProvider } from 'next-themes';
 import Container from '@components/Container';
 import Head from 'next/head';
 import Header from '@components/Header';
+import Menu from '@components/Menu';
 
 import '../styles/globals.scss';
 
@@ -26,10 +27,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ThemeProvider attribute="class" defaultTheme="system">
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <Container>
           <>
             <Header />
+            <Menu />
             <Component {...pageProps} />
           </>
         </Container>
