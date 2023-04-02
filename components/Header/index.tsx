@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 import DarkMode from '../ui/icons/ThemeButton';
 import Github from '../ui/icons/Github';
-import Logo from '../Logo';
+import Logo from '../ui/Logo';
 
 function Header() {
   const { theme, setTheme } = useTheme();

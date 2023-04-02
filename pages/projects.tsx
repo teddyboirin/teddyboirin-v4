@@ -89,8 +89,22 @@ export default function Home() {
         <h1 className="text-4xl font-bold text-center mt-6">Mes projets 🖼️</h1>
         <div className="w-full mt-10 flex items-center justify-between gap-5 relative flex-col md:flex-row swiper-block">
           <Swiper
-            className="!md:grid w-full !pb-8 "
-            slidesPerView={3}
+            className="!md:grid w-full !pb-8"
+            slidesPerView={2}
+            breakpoints={{
+              320: {
+                slidesPerView: 1,
+                spaceBetween: 24,
+              },
+              480: {
+                slidesPerView: 1,
+                spaceBetween: 32,
+              },
+              640: {
+                slidesPerView: 3,
+                spaceBetween: 48,
+              },
+            }}
             spaceBetween={48}
             parallax
             pagination={{
