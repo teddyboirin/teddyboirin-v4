@@ -1,6 +1,9 @@
 import { memo } from 'react';
 
-function Skotch() {
+interface Props {
+  color?: string;
+}
+function Skotch({ color }: Props) {
   return (
     <svg
       width="59"
@@ -14,7 +17,7 @@ function Skotch() {
         width="63"
         height="7.30418"
         transform="rotate(-30 0 31.5)"
-        fill="#040404"
+        fill={color}
       />
     </svg>
   );
