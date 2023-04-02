@@ -111,7 +111,7 @@ function Head() {
       <div className="w-full relative">
         <h1
           id="title"
-          className={`text-30 md:text-54 font-bold ${
+          className={`text-30 md:text-54 font-bold transition duration-300 ${
             theme === 'dark' ? 'white' : 'black'
           }`}
         >
@@ -121,7 +121,7 @@ function Head() {
           {' '}
           développeur front-end 👨🏻‍💻
         </h1>
-        <p className="text-14 md:text-16 mt-2">
+        <p className="text-14 md:text-16 mt-2 transition duration-300">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
           vulputate libero et velit interdum, ac aliquet odio mattis. Class
           aptent taciti sociosqu ad litora torquent per conubia nostra, per
