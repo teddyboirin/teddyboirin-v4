@@ -4,7 +4,7 @@ type Props = {
   color: string;
 }
 
-function ThemeButton({color}: Props) {
+function ThemeButton({ color }: Props) {
   return (
     <svg
       width="17"

@@ -5,4 +5,5 @@ export type Project = {
     link: string;
     image: StaticImageData;
     color: string;
+    desc: string;
 }

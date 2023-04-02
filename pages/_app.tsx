@@ -1,8 +1,12 @@
-import { ThemeProvider } from 'next-themes';
-import type { AppProps } from 'next/app';
-import Head from 'next/head';
-import '../styles/globals.scss';
 import { useEffect, useState } from 'react';
+import type { AppProps } from 'next/app';
+import { ThemeProvider } from 'next-themes';
+
+import Container from '@components/Container';
+import Head from 'next/head';
+import Header from '@components/Header';
+
+import '../styles/globals.scss';
 
 export default function App({ Component, pageProps }: AppProps) {
   const [mounted, setMounted] = useState(false);
@@ -23,7 +27,12 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThemeProvider attribute="class" defaultTheme="system">
-        <Component {...pageProps} />
+        <Container>
+          <>
+            <Header />
+            <Component {...pageProps} />
+          </>
+        </Container>
       </ThemeProvider>
     </>
   );
