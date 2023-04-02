@@ -1,5 +1,5 @@
 import { Bounce, gsap } from 'gsap';
-import { memo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { useTheme } from 'next-themes';
 
 import Image from 'next/image';
@@ -18,6 +18,7 @@ function Head() {
   const [skotch, setSkotck] = useState(false);
   const [ended, setEnded] = useState(false);
   const { theme } = useTheme();
+  const updateColor = useMemo(() => (theme === 'dark' ? 'white' : 'black'), [theme]);
   const Anim = () => {
     setSkotck(true);
     gsap.to('#image', {
@@ -54,17 +55,18 @@ function Head() {
   //     ease: Power3.easeOut,
   //   })
   // }, [])
+
   return (
     <div className="w-full mt-5 flex items-center justify-between gap-5 relative flex-col md:flex-row md:h-[calc(100vh_-_60px_-_32px_-_96px)]">
       <div className="absolute right-0 top-[30px] md:right-[40px] md:top-[50px] z-[200]">
-        <Sun />
+        <Sun color={updateColor} />
       </div>
       <div className="absolute left-[580px] top-[120px] z-[200] hidden md:block">
-        <Burger />
+        <Burger color={updateColor} />
       </div>
       <div className="md:min-w-[407px] md:min-h-[485px] filter-shadow rounded-basic relative">
-        <div className="absolute top-[34px] md:right-[180px] md:bottom-0 z-[200]">
-          <Cloud />
+        <div className="absolute top-[-64px] md:right-[180px] md:bottom-0 z-[200]">
+          <Cloud color={updateColor} />
         </div>
         <div
           className={`absolute top-[-7px] left-[-14px] z-[300] transition duration-300 ${
@@ -75,7 +77,7 @@ function Head() {
           tabIndex={0}
           onClick={() => Falling()}
         >
-          <Skotch />
+          <Skotch color="#F2F614" />
         </div>
         <div
           className={`absolute top-[-7px] right-[-14px] rotate-[65deg] z-[300] ${
@@ -86,7 +88,7 @@ function Head() {
           tabIndex={0}
           onClick={() => Anim()}
         >
-          <Skotch />
+          <Skotch color="#F2F614" />
         </div>
         <div className="relative">
           <div
@@ -94,7 +96,7 @@ function Head() {
               skotch ? 'opacity-0' : 'opacity-100'
             }`}
           >
-            <Arrow />
+            <Arrow color={updateColor} />
           </div>
           <Image id="image" src={Me} alt="me" className="rounded-basic" />
           <div
@@ -102,7 +104,7 @@ function Head() {
               ended ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <Smile />
+            <Smile color={updateColor} />
           </div>
         </div>
       </div>

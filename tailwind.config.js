@@ -65,7 +65,7 @@ module.exports = {
       screens: {},
       boxShadow: {
         card: '0 0 50px #00000022',
-        projectOpen: '0 0 50px #00000045'
+        projectOpen: '0 0 50px #00000045',
       },
       brightness: {},
       transitionDuration: {},
@@ -125,6 +125,7 @@ module.exports = {
       black: '#0a0a0a',
       white: '#FFFFFF',
       overlay: '#0000009d',
+      scotch: '#F2F614',
     },
   },
 };
