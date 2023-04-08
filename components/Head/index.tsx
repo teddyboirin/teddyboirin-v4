@@ -56,11 +56,7 @@ function Head() {
   return (
     <div className="w-full mt-5 flex items-center justify-between gap-5 relative flex-col md:flex-row md:h-[calc(100vh_-_60px_-_32px_-_96px)]">
       <div className="absolute right-0 top-[30px] md:right-[40px] md:top-[50px] z-[200]">
-        <AnimatePresence>
-          <motion.div>
-            <Sun color={updateColor} />
-          </motion.div>
-        </AnimatePresence>
+        <Sun color={updateColor} />
       </div>
       <div className="absolute left-[580px] top-[120px] z-[200] hidden md:block">
         <Burger color={updateColor} />
@@ -78,7 +74,6 @@ function Head() {
           tabIndex={0}
           onClick={() => Falling()}
         >
-
           <Skotch color="#F2F614" />
         </div>
         <div
@@ -100,6 +95,20 @@ function Head() {
           >
             <Arrow color={updateColor} />
           </div>
+          <AnimatePresence>
+            <motion.div
+              initial={{
+                height: '100%',
+              }}
+              animate={{
+                height: 0,
+              }}
+              transition={{
+                duration: 1, ease: 'easeOut', delay: 0.3,
+              }}
+              className={`h-[485px] w-[407px] absolute ${theme === 'dark' ? 'bg-white' : 'bg-black'}`}
+            />
+          </AnimatePresence>
           <Image id="image" src={Me} alt="me" className="rounded-basic" />
           <div
             className={`absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] z-[-1] transition duration-300 ${
@@ -147,8 +156,8 @@ function Head() {
           aptent taciti sociosqu ad litora torquent per conubia nostra, per
           inceptos himenaeos.
         </p>
-        <div className="flex gap-3">
-          <Link href="#">
+        <div className="flex gap-3 mt-3">
+          <Link href="/contact">
             <Button basic>Contactez-moi</Button>
           </Link>
           <Link href="/projects">

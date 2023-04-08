@@ -1,4 +1,4 @@
-import { StaticImageData } from "next/image";
+import { StaticImageData } from 'next/image';
 
 export type Project = {
     title: string;
@@ -6,4 +6,5 @@ export type Project = {
     image: StaticImageData;
     color: string;
     desc: string;
+    type: string;
 }

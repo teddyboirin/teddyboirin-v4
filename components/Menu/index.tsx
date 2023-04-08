@@ -1,8 +1,9 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import { memo, useCallback } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
+
 import { MenuItems } from './data';
 
 function Menu() {

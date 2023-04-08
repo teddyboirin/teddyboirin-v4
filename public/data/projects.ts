@@ -5,35 +5,50 @@ import Madmen from '../img/madmen.jpg';
 
 export const Data = [
   {
-    id: 1,
+    id: 0,
     title: 'Agua Blanca',
     link: 'https://aguablanca.co/',
     image: AguaBlanca,
     color: 'black',
-    desc: '',
+    desc: `MarketPlace de produits d'hygiène et d'entretien responsable
+- Développement Front x Next JS
+- Création d'API front
+- Clean code
+- Architecture front
+- Code review
+- Context API
+- Jest tests
+- Sentry logs
+- Cypress tests
+- Storybook
+- TypeScript`,
+    type: 'cdi',
   },
   {
-    id: 2,
+    id: 1,
     title: 'Be In Shape',
     link: 'https://be-in-shape.fr/',
     image: BeInSHape,
     color: 'white',
-    desc: '',
+    desc: 'aaa',
+    type: 'cdi',
   },
   {
-    id: 3,
+    id: 2,
     title: 'AJDB',
     link: 'https://ajdb.fr/',
     image: AJDB,
     color: 'black',
-    desc: '',
+    desc: 'bbb',
+    type: 'cdi',
   },
   {
-    id: 4,
+    id: 3,
     title: 'Madmen Paris',
     link: 'https://madmenparis.fr/',
     image: Madmen,
     color: 'white',
-    desc: '',
+    desc: 'ccc',
+    type: 'cdi',
   },
 ];

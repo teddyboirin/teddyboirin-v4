@@ -13,18 +13,20 @@ import 'swiper/css/pagination';
 import 'swiper/css/mousewheel';
 
 export default function Home() {
-  const [projectOpen, setProjectOpen] = useState<number | null>();
+  const [projectOpen, setProjectOpen] = useState<number | null>(null);
+  const handleClick = (id) => {
+    setProjectOpen(id);
+  };
   return (
     <>
       <HeadUtils>développeur front-end | projets</HeadUtils>
       <>
         <AnimatePresence>
-          {projectOpen && (
+          {projectOpen !== null && (
             <motion.div
-              id="teddy"
+              layout
               onKeyPress={() => setProjectOpen(null)}
               onClick={() => setProjectOpen(null)}
-              role="button"
               tabIndex={0}
               initial={{
                 opacity: 0,
@@ -51,32 +53,31 @@ export default function Home() {
           )}
         </AnimatePresence>
         <AnimatePresence>
-          {projectOpen && (
+          {projectOpen !== null && (
             <motion.div
-              className=" w-auto h-auto"
-              layout
+              className="w-auto h-auto"
               initial={{
                 opacity: 0,
                 zIndex: 150,
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                scaleY: 0.8,
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                scaleY: 0.95,
               }}
               animate={{
                 opacity: 1,
                 zIndex: 150,
-                top: 0,
-                left: 0,
+                top: '50%',
+                left: '50%',
                 scaleY: 1,
               }}
               transition={{ duration: 0.3 }}
               exit={{
                 opacity: 0,
                 zIndex: 150,
-                top: 0,
-                left: 0,
-                scaleY: 0.8,
+                top: '50%',
+                left: '50%',
+                scaleY: 0.95,
               }}
             >
               <ProjectItem
@@ -119,7 +120,7 @@ export default function Home() {
               <SwiperSlide key={project.id} className="relative">
                 <Card
                   project={project}
-                  onClick={() => setProjectOpen(project.id)}
+                  onClick={() => handleClick(project.id)}
                 />
               </SwiperSlide>
             ))}
