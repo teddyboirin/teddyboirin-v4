@@ -12,6 +12,10 @@
   --background: black;
   --foreground: white;
 }
+::selection {
+  background: #F2F614;
+  color: black;
+}
 
 * {
     box-sizing: border-box;

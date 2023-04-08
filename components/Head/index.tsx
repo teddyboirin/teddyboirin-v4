@@ -1,10 +1,13 @@
-import { Bounce, gsap } from 'gsap';
-import { memo, useMemo, useState } from 'react';
+import { Bounce, Power3, gsap } from 'gsap';
+import {
+  memo, useEffect, useMemo, useRef, useState,
+} from 'react';
 import { useTheme } from 'next-themes';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { AnimatePresence, motion } from 'framer-motion';
 import Arrow from '../ui/icons/Arrow';
 import Burger from '../ui/icons/Burger';
 import Button from '../ui/Button';
@@ -17,8 +20,12 @@ import Sun from '../ui/icons/Sun';
 function Head() {
   const [skotch, setSkotck] = useState(false);
   const [ended, setEnded] = useState(false);
+  const job = useRef();
   const { theme } = useTheme();
-  const updateColor = useMemo(() => (theme === 'dark' ? 'white' : 'black'), [theme]);
+  const updateColor = useMemo(
+    () => (theme === 'dark' ? 'white' : 'black'),
+    [theme],
+  );
   const Anim = () => {
     setSkotck(true);
     gsap.to('#image', {
@@ -46,20 +53,14 @@ function Head() {
     }
   };
 
-  // useLayoutEffect(() => {
-  //   gsap.from(['#image', '#title'], {
-  //     y: -40,
-  //     opacity: 0,
-  //     duration: 1,
-  //     stagger: .3,
-  //     ease: Power3.easeOut,
-  //   })
-  // }, [])
-
   return (
     <div className="w-full mt-5 flex items-center justify-between gap-5 relative flex-col md:flex-row md:h-[calc(100vh_-_60px_-_32px_-_96px)]">
       <div className="absolute right-0 top-[30px] md:right-[40px] md:top-[50px] z-[200]">
-        <Sun color={updateColor} />
+        <AnimatePresence>
+          <motion.div>
+            <Sun color={updateColor} />
+          </motion.div>
+        </AnimatePresence>
       </div>
       <div className="absolute left-[580px] top-[120px] z-[200] hidden md:block">
         <Burger color={updateColor} />
@@ -77,6 +78,7 @@ function Head() {
           tabIndex={0}
           onClick={() => Falling()}
         >
+
           <Skotch color="#F2F614" />
         </div>
         <div
@@ -111,7 +113,7 @@ function Head() {
       <div className="w-full relative">
         <h1
           id="title"
-          className={`text-30 md:text-54 font-bold transition duration-300 ${
+          className={`relative text-30 md:text-54 font-bold transition duration-300 ${
             theme === 'dark' ? 'white' : 'black'
           }`}
         >
@@ -119,7 +121,25 @@ function Head() {
           {' '}
           <br />
           {' '}
-          développeur front-end 👨🏻‍💻
+          <span className={theme === 'dark' ? 'text-black' : 'text-white'}>
+            développeur front-end 👨🏻‍💻
+          </span>
+          <AnimatePresence>
+            <motion.div
+              initial={{
+                width: 0,
+                opacity: 0,
+              }}
+              animate={{
+                width: '95%',
+                opacity: 1,
+              }}
+              transition={{ duration: 0.6, ease: 'easeInOut' }}
+              className={`absolute bottom-0 z-[-10] w-full md:w-[90%] h-1/2 ${
+                theme === 'dark' ? 'bg-white' : 'bg-black'
+              }`}
+            />
+          </AnimatePresence>
         </h1>
         <p className="text-14 md:text-16 mt-2 transition duration-300">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
