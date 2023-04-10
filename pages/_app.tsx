@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import type { AppProps } from 'next/app';
+import { AppProvider } from '@hooks/useApp';
 import { ThemeProvider } from 'next-themes';
 
+import Contact from '@components/Contact';
 import Container from '@components/Container';
 import Head from 'next/head';
 import Header from '@components/Header';
@@ -11,7 +13,6 @@ import '../styles/globals.scss';
 
 export default function App({ Component, pageProps }: AppProps) {
   const [mounted, setMounted] = useState(false);
-
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
     setMounted(true);
@@ -29,12 +30,16 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <Container>
-          <>
-            <Header />
-            <Menu />
-            <Component {...pageProps} />
-          </>
+          <AppProvider>
+            <>
+              <Contact />
+              <Header />
+              <Menu />
+              <Component {...pageProps} />
+            </>
+          </AppProvider>
         </Container>
+
       </ThemeProvider>
     </>
   );
