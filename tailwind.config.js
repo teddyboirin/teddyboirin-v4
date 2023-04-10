@@ -19,6 +19,7 @@ module.exports = {
     },
     spacing: {
       0: '0',
+      0.10: '2px',
       0.25: '4px',
       0.5: '6px',
       1: '8px',
@@ -124,6 +125,7 @@ module.exports = {
 
     colors: {
       black: '#0a0a0a',
+      dark: '#121212',
       white: '#FFFFFF',
       overlay: '#0000009d',
       scotch: '#F2F614',

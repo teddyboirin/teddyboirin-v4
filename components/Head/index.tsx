@@ -1,13 +1,11 @@
-import { Bounce, Power3, gsap } from 'gsap';
-import {
-  memo, useEffect, useMemo, useRef, useState,
-} from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Bounce, gsap } from 'gsap';
+import { memo, useMemo, useState } from 'react';
 import { useTheme } from 'next-themes';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { AnimatePresence, motion } from 'framer-motion';
 import Arrow from '../ui/icons/Arrow';
 import Burger from '../ui/icons/Burger';
 import Button from '../ui/Button';
@@ -18,9 +16,8 @@ import Smile from '../ui/icons/Smile';
 import Sun from '../ui/icons/Sun';
 
 function Head() {
-  const [skotch, setSkotck] = useState(false);
-  const [ended, setEnded] = useState(false);
-  const job = useRef();
+  const [skotch, setSkotck] = useState<boolean>(false);
+  const [ended, setEnded] = useState<boolean>(false);
   const { theme } = useTheme();
   const updateColor = useMemo(
     () => (theme === 'dark' ? 'white' : 'black'),
@@ -104,12 +101,23 @@ function Head() {
                 height: 0,
               }}
               transition={{
-                duration: 1, ease: 'easeOut', delay: 0.3,
+                duration: 1,
+                ease: 'easeOut',
+                delay: 0.3,
               }}
-              className={`h-[485px] w-[407px] absolute ${theme === 'dark' ? 'bg-white' : 'bg-black'}`}
+              className={`h-[485px] w-[407px] absolute rounded-basic ${
+                theme === 'dark' ? 'bg-dark' : 'bg-white'
+              }`}
             />
           </AnimatePresence>
-          <Image id="image" src={Me} alt="me" className="rounded-basic" />
+          <Image
+            id="image"
+            src={Me}
+            alt="me"
+            className="rounded-basic"
+            width={407}
+            height={485}
+          />
           <div
             className={`absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] z-[-1] transition duration-300 ${
               ended ? 'opacity-100' : 'opacity-0'

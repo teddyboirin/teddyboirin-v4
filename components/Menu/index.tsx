@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { memo, useCallback } from 'react';
+import { useApp } from '@hooks/useApp';
 import { useRouter } from 'next/router';
 
 import Link from 'next/link';
@@ -13,6 +14,7 @@ function Menu() {
     (item) => router.pathname === item.link,
     [router],
   );
+  const { isOpenContact, setIsOpenContact } = useApp();
   return (
     <AnimatePresence>
       <motion.div
@@ -43,10 +45,16 @@ function Menu() {
               </li>
             </Link>
           ))}
+          <button type="button" onClick={() => setIsOpenContact(!isOpenContact)}>
+            <li
+              className="cursor-pointer hover:underline hover:decoration-wavy hover:decoration-scotch hover:underline-offset-4"
+            >
+              Contact
+            </li>
+          </button>
         </ul>
       </motion.div>
     </AnimatePresence>
-
   );
 }
 export default memo(Menu);
