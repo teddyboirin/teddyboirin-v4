@@ -10,7 +10,6 @@ import Logo from '../ui/Logo';
 
 function Header() {
   const { theme, setTheme } = useTheme();
-
   const themeColor = theme === 'dark' ? 'white' : 'black';
 
   const handleClick = () => {

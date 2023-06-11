@@ -13,7 +13,7 @@ function Card({ project, onClick }: Props) {
   return (
     <button
       type="button"
-      className="flex shadow-card relative h-full "
+      className="flex shadow-card relative h-full group"
       onClick={onClick}
     >
       <Image
@@ -22,10 +22,10 @@ function Card({ project, onClick }: Props) {
         style={{
           objectFit: 'cover',
         }}
-        className="rounded-basic"
+        className="rounded-basic hover:grayscale-[70%] transition duration-300"
       />
       <div
-        className="absolute text-center bottom-[8px] text-[24px] lg:text-[32px] w-full whitespace-nowrap font-semibold z-[200] uppercase "
+        className="absolute text-center bottom-[8px] text-[24px] lg:text-[32px] w-full whitespace-nowrap font-semibold z-[200] uppercase group-hover:!text-scotch text-shadow-basic transition duration-300"
         style={{ color: project.color }}
       >
         {project.title}

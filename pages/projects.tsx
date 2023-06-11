@@ -87,7 +87,7 @@ export default function Home() {
             </motion.div>
           )}
         </AnimatePresence>
-        <h1 className="text-4xl font-bold text-center mt-6">Mes projets 🖼️</h1>
+        <h1 className="text-4xl font-bold text-center mt-6">Projets 🖼️</h1>
         <div className="w-full mt-5 lg:mt-10 flex items-center justify-between gap-5 relative flex-col md:flex-row swiper-block">
           <Swiper
             className="!md:grid w-full !pb-8"

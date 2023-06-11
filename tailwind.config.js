@@ -64,6 +64,9 @@ module.exports = {
         basic: '8px',
       },
       screens: {},
+      textShadow: {
+        basic: '0px 3px 5px #00000054',
+      },
       boxShadow: {
         card: '0 0 50px #00000022',
         projectOpen: '0 0 50px #00000045',

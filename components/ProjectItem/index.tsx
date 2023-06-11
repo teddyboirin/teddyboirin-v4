@@ -47,7 +47,7 @@ function Index({ project, handleClose }: Props) {
               </Button>
             </a>
           </div>
-          <ReactMarkdown className="text-14 md:text-16 text-black">
+          <ReactMarkdown className="text-14 md:text-14 text-black">
             {project?.desc}
           </ReactMarkdown>
         </div>

@@ -31,7 +31,7 @@ export const Data = [
     image: BeInSHape,
     color: 'white',
     desc: 'aaa',
-    type: 'cdi',
+    type: 'Freelance',
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ export const Data = [
     image: AJDB,
     color: 'black',
     desc: 'bbb',
-    type: 'cdi',
+    type: 'Freelance',
   },
   {
     id: 3,
@@ -49,6 +49,6 @@ export const Data = [
     image: Madmen,
     color: 'white',
     desc: 'ccc',
-    type: 'cdi',
+    type: 'Freelance',
   },
 ];

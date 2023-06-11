@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { Bounce, gsap } from 'gsap';
 import { memo, useMemo, useState } from 'react';
+import { useApp } from '@hooks/useApp';
 import { useTheme } from 'next-themes';
 
 import Image from 'next/image';
@@ -18,6 +19,7 @@ import Sun from '../ui/icons/Sun';
 function Head() {
   const [skotch, setSkotck] = useState<boolean>(false);
   const [ended, setEnded] = useState<boolean>(false);
+  const { isOpenContact, setIsOpenContact } = useApp();
   const { theme } = useTheme();
   const updateColor = useMemo(
     () => (theme === 'dark' ? 'white' : 'black'),
@@ -165,9 +167,7 @@ function Head() {
           inceptos himenaeos.
         </p>
         <div className="flex gap-3 mt-3">
-          <Link href="/contact">
-            <Button basic>Contactez-moi</Button>
-          </Link>
+          <Button basic onClick={() => setIsOpenContact(!isOpenContact)}>Contactez-moi</Button>
           <Link href="/projects">
             <Button secondary>Mes projets</Button>
           </Link>
