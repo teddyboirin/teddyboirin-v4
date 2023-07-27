@@ -22,10 +22,10 @@ function Card({ project, onClick }: Props) {
         style={{
           objectFit: 'cover',
         }}
-        className="rounded-basic hover:grayscale-[70%] transition duration-300"
+        className="rounded-basic grayscale-[50%] hover:grayscale-0 transition duration-300"
       />
       <div
-        className="absolute text-center bottom-[8px] text-[24px] lg:text-[32px] w-full whitespace-nowrap font-semibold z-[200] uppercase group-hover:!text-scotch text-shadow-basic transition duration-300"
+        className="absolute text-center bottom-[8px] text-[16px] md:text-[24px] lg:text-[32px] w-full whitespace-nowrap font-semibold z-[20] uppercase group-hover:!text-scotch text-shadow-basic transition duration-300"
         style={{ color: project.color }}
       >
         {project.title}

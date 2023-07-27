@@ -59,7 +59,7 @@ export default function Home() {
               initial={{
                 opacity: 0,
                 zIndex: 150,
-                position: 'absolute',
+                position: 'fixed',
                 top: '50%',
                 left: '50%',
                 scaleY: 0.95,
@@ -87,44 +87,15 @@ export default function Home() {
             </motion.div>
           )}
         </AnimatePresence>
-        <h1 className="text-4xl font-bold text-center mt-6">Projets 🖼️</h1>
-        <div className="w-full mt-5 lg:mt-10 flex items-center justify-between gap-5 relative flex-col md:flex-row swiper-block">
-          <Swiper
-            className="!md:grid w-full !pb-8"
-            slidesPerView={2}
-            breakpoints={{
-              320: {
-                slidesPerView: 1,
-                spaceBetween: 24,
-              },
-              480: {
-                slidesPerView: 1,
-                spaceBetween: 32,
-              },
-              640: {
-                slidesPerView: 3,
-                spaceBetween: 48,
-              },
-            }}
-            spaceBetween={48}
-            parallax
-            pagination={{
-              dynamicBullets: true,
-            }}
-            modules={[Pagination, Mousewheel]}
-            mousewheel={{
-              releaseOnEdges: true,
-            }}
-          >
-            {Data.map((project) => (
-              <SwiperSlide key={project.id} className="relative">
-                <Card
-                  project={project}
-                  onClick={() => handleClick(project.id)}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+        <h1 className="text-2xl md:text-4xl font-bold text-center mt-6">Projets 🖼️</h1>
+        <div className="w-full mt-5 lg:mt-10 grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-6">
+          {Data.map((project) => (
+            <Card
+              key={project.id}
+              project={project}
+              onClick={() => handleClick(project.id)}
+            />
+          ))}
         </div>
       </>
     </>

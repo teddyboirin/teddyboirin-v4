@@ -7,8 +7,4 @@ export const MenuItems = [
     title: 'Projets',
     link: '/projects',
   },
-  {
-    title: 'About',
-    link: '/about',
-  },
 ];

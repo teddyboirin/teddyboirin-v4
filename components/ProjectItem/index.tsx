@@ -16,7 +16,7 @@ type Props = {
 function Index({ project, handleClose }: Props) {
   return (
     <div className="left-0 top-0 flex items-center justify-center z-[100]">
-      <div className="bg-white w-[90%] md:w-[800px] md:min-h-[400px] flex md:grid md:grid-cols-[300px_1fr] flex-col md:flex-row p-3 gap-3 rounded-basic shadow-projectOpen !absolute">
+      <div className="bg-white w-[300px] md:w-[800px] flex md:grid md:grid-cols-[300px_1fr] flex-col md:flex-row p-3 gap-3 rounded-basic shadow-projectOpen !fixed !z-50">
         <div
           className="absolute top-4 right-4 md:top-3 md:right-3 cursor-pointer z-10"
           onClick={handleClose}
@@ -38,16 +38,20 @@ function Index({ project, handleClose }: Props) {
           />
         </div>
         <div className="h-full w-full projects">
-          <div className="flex gap-2 items-center">
-            <h3 className="text-26 md:text-32 font-semibold text-black">{project.title}</h3>
-            <Badge>{project.type.toUpperCase()}</Badge>
-            <a href={project.link} target="_blank" rel="nofollow noreferrer">
-              <Button secondary small>
-                Visiter
-              </Button>
-            </a>
+          <div className="flex gap-1 md:gap-2 md:items-center flex-col md:flex-row">
+            <h3 className="text-26 md:text-28 font-semibold text-black">
+              {project.title}
+            </h3>
+            <div className="flex gap-2 mb-1 md:mb-0 items-center md:justify-center">
+              <Badge>{project.type.toUpperCase()}</Badge>
+              <a href={project.link} target="_blank" rel="nofollow noreferrer">
+                <Button secondary small>
+                  Visiter
+                </Button>
+              </a>
+            </div>
           </div>
-          <ReactMarkdown className="text-14 md:text-14 text-black">
+          <ReactMarkdown className="text-12 md:text-14 text-black">
             {project?.desc}
           </ReactMarkdown>
         </div>

@@ -29,7 +29,7 @@ function Menu() {
           left: '50%',
         }}
         transition={{ duration: 0.6 }}
-        className="bg-black text-white absolute bottom-[40px] lg:bottom-[76px] left-1/2 -translate-x-1/2 rounded-basic p-3 lg:px-3 lg:py-4 z-[100] text-12 lg:text-14 border-scotch border-[1px] border-dashed"
+        className="bg-black text-white fixed bottom-[40px] lg:bottom-[76px] left-1/2 -translate-x-1/2 rounded-basic p-3 lg:px-3 lg:py-4 z-[100] text-12 lg:text-14 border-scotch border-[1px] border-dashed"
       >
         <ul className="w-full flex gap-4">
           {MenuItems.map((item) => (
@@ -45,10 +45,11 @@ function Menu() {
               </li>
             </Link>
           ))}
-          <button type="button" onClick={() => setIsOpenContact(!isOpenContact)}>
-            <li
-              className="cursor-pointer hover:underline hover:decoration-wavy hover:decoration-scotch hover:underline-offset-4"
-            >
+          <button
+            type="button"
+            onClick={() => setIsOpenContact(!isOpenContact)}
+          >
+            <li className="cursor-pointer hover:underline hover:decoration-wavy hover:decoration-scotch hover:underline-offset-4">
               Contact
             </li>
           </button>
